@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Surprise</title>
+    <title>Birthday Surprise</title>
     <style>
         body {
             display: flex;
@@ -17,13 +17,15 @@
             padding: 20px;
         }
         #message {
-            font-size: 5vw; /* Responsive font size */
+            font-size: min(6vw, 28px); /* Responsive font size */
             font-weight: bold;
             color: #d63384;
-            white-space: nowrap;
+            white-space: pre-line; /* Allows line breaks */
             overflow: hidden;
             border-right: 3px solid #d63384;
             padding-right: 5px;
+            max-width: 90%;
+            line-height: 1.5;
             animation: blink 0.8s infinite;
         }
         @keyframes blink {
@@ -31,7 +33,7 @@
         }
         @media (max-width: 600px) {
             #message {
-                font-size: 7vw; /* Larger text on smaller screens */
+                font-size: min(8vw, 24px);
             }
         }
     </style>
@@ -39,19 +41,18 @@
 <body>
     <div id="message"></div>
     <script>
-        const text = "Вітаю з Днем Народження, Вероніка! 😉";
+        const text = "Вітаю з Днем Народження, Вероніка🥳\n\nБажаю здійснення всіх найзаповітніших мрій і бажань, про які знаєш тільки ти.\n\nВ тебе все вийде😉";
         let index = 0;
         function typeEffect() {
             if (index < text.length) {
                 document.getElementById("message").textContent += text[index];
                 index++;
-                setTimeout(typeEffect, 100);
+                setTimeout(typeEffect, 50); // Faster typing for longer text
             } else {
                 document.getElementById("message").style.borderRight = "none";
             }
         }
-        setTimeout(typeEffect, 1000);
+        setTimeout(typeEffect, 500);
     </script>
 </body>
 </html>
-
